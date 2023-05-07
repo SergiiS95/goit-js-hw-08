@@ -23,8 +23,13 @@ function onAutoInput() {
 }
 
 function onSubmiteForm(evt) {
-  evt.preventDefault();
-  form.reset();
-  localStorage.removeItem(feedbackKey);
-  console.log(formData);
+    evt.preventDefault();
+    if (!form.elements.email.value || !form.elements.message.value) {
+      return alert('Всі поля повинні бути заповнені');
+    } else {
+      console.log(formData);
+      form.reset();
+      localStorage.removeItem(feedbackKey);
+
+    }
 }
